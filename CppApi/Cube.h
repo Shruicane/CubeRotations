@@ -43,7 +43,8 @@ private:
     unsigned* resolveFaceIndex(unsigned i);
 
     //Face Rotation (anzahl rotationen im uhrzeigersinn)
-    unsigned rotateFace(int turns, unsigned FACE);
+    unsigned rotateFace(unsigned FACE);
+    unsigned rotateFaceInverted(unsigned FACE);
 
     //Rotations
     Cube rotateLeft();
