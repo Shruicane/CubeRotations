@@ -5,7 +5,22 @@
 #ifndef CUBEROTATIONS_CUBE_H
 #define CUBEROTATIONS_CUBE_H
 
+#define WHITE_FACE_SOLVED 0
+#define RED_FACE_SOLVED 0
+#define BLUE_FACE_SOLVED 0
+#define ORANGE_FACE_SOLVED 0
+#define GREEN_FACE_SOLVED 0
+#define YELLOW_FACE_SOLVED 0
 
+#define WHITE_FACE 0
+#define RED_FACE 1
+#define BLUE_FACE 2
+#define ORANGE_FACE 3
+#define GREEN_FACE 4
+#define YELLOW_FACE 5
+
+#include <iostream>
+using namespace std;
 /*
  * 3 bit pro Fläche * 9 = 27 * 6 = 162
  * int = 32 bit - 6 Integer (192 bit)
@@ -35,23 +50,14 @@ private:
     unsigned yellow;
     unsigned blue;
     unsigned orange;
-    unsigned* arr[6];
-    void generatePointerArray();
+    unsigned* faceArr[6];
+    void generateFaceArr();
+    unsigned* resolveFaceIndex(unsigned i);
 
-public:
-    Cube();
-    Cube(bool valid);
-    Cube(unsigned int white, unsigned int green, unsigned int red, unsigned int yellow, unsigned int blue,
-         unsigned int orange);
+    //Face Rotation (anzahl rotationen im uhrzeigersinn)
+    unsigned rotateFace(int turns, unsigned FACE);
 
-    char getSequence(int i);
-    void setSequence(int i, unsigned seq);
-    unsigned getFace(char i);
-
-    //rotate Funktionen
-
-    Cube rotate(int i);
-
+    //Rotations
     Cube rotateLeft();
     Cube rotateLeftPrime();
     Cube rotateRight();
@@ -70,6 +76,23 @@ public:
     Cube rotateYSlicePrime();
     Cube rotateZSlice();
     Cube rotateZSlicePrime();
+
+public:
+    Cube();
+    explicit Cube(bool valid);
+    Cube(const Cube &cube);
+    Cube(unsigned int white, unsigned int red, unsigned int blue, unsigned int orange, unsigned int green,
+         unsigned int yellow);
+
+    bool operator==(Cube &c);
+
+    unsigned getSequence(unsigned i, unsigned source);
+    void setSequence(unsigned i, unsigned seq, unsigned &target);
+
+    unsigned getFace(unsigned FACE);
+    Cube rotate(int i);
+    void setFace(unsigned i, unsigned value);
+
 };
 
 

@@ -5,19 +5,8 @@
 #include "Cube.h"
 
 //TODO: Richige Farben einfügen sodass würfel gelöst ist
-Cube::Cube() : Cube(0, 0, 0, 0, 0, 0) {
-
-}
-
-void Cube::setSequence(int i, unsigned seq) {
-    //Alles links der niederwertigsten 3 Bit löschen
-    seq = (seq << 29) >> 27;
-}
-
-char Cube::getSequence(int i) {
-    //index geht in dreier schritten voran
-
-    return 0;
+Cube::Cube() : Cube(WHITE_FACE_SOLVED, GREEN_FACE_SOLVED, RED_FACE_SOLVED,
+                    YELLOW_FACE_SOLVED, BLUE_FACE_SOLVED, ORANGE_FACE_SOLVED) {
 }
 
 Cube::Cube(bool valid) : Cube(){
@@ -31,24 +20,80 @@ Cube::Cube(bool valid) : Cube(){
     }
 }
 
-Cube::Cube(unsigned white, unsigned green, unsigned red, unsigned yellow, unsigned blue,
-           unsigned orange) : white(white), green(green), red(red), yellow(yellow), blue(blue), orange(orange)
+Cube::Cube(unsigned white, unsigned red, unsigned blue, unsigned orange, unsigned green,
+           unsigned yellow) : white(white), green(green), red(red), yellow(yellow), blue(blue), orange(orange)
 {
-    generatePointerArray();
+    generateFaceArr();
 }
 
-unsigned[6] Cube::generatePointerArray() {
-    this->arr[0] = &(this->white);
-    this->arr[1] = &(this->red);
-    this->arr[2] = &(this->blue);
-    this->arr[3] = &(this->orange);
-    this->arr[4] = &(this->green);
-    this->arr[5] = &(this->yellow);
-
+Cube::Cube(const Cube &cube) {
+    this->white = cube.white;
+    this->red = cube.red;
+    this->blue = cube.blue;
+    this->orange = cube.orange;
+    this->green = cube.green;
+    this->yellow = cube.yellow;
+    this->generateFaceArr();
 }
 
-unsigned Cube::getFace(char i) {
-    return *(this->arr[i]);
+void Cube::setSequence(unsigned i, unsigned seq, unsigned &target) {
+    //Alles links der niederwertigsten 3 Bit löschen
+    seq = (seq << 29) >> 29;
+    //Verschiebung an den Index
+    seq = seq << (i * 3);
+    //Linken teil des face extrahieren
+    unsigned left = target >> ((i+1) * 3) << ((i+1) * 3);
+    //rechten teil des face extrahieren. +2 addieren weil int laenge
+    unsigned right = 0;
+    if( i != 0){
+        right = target << ( 2 + ((i+1) * 3) ) >> ( 2 + ((i+1) * 3) );
+    }
+    //Alle drei teile zusammenfügen
+    unsigned result = left | seq | right;
+    target = result;
+}
+
+unsigned Cube::getSequence(unsigned i, unsigned source) {
+    //index geht in dreier schritten voran
+    return source << (32 - ((i+1) * 3)) >> (32 - 3);
+}
+
+void Cube::generateFaceArr() {
+    this->faceArr[WHITE_FACE] = &(this->white);
+    this->faceArr[RED_FACE] = &(this->red);
+    this->faceArr[BLUE_FACE] = &(this->blue);
+    this->faceArr[ORANGE_FACE] = &(this->orange);
+    this->faceArr[GREEN_FACE] = &(this->green);
+    this->faceArr[YELLOW_FACE] = &(this->yellow);
+}
+
+unsigned *Cube::resolveFaceIndex(unsigned i) {
+    switch (i) {
+        case WHITE_FACE:
+            return &(this->white);
+        case BLUE_FACE:
+            return &(this->blue);
+        case RED_FACE:
+            return &(this->red);
+        case YELLOW_FACE:
+            return &(this->yellow);
+        case ORANGE_FACE:
+            return &(this->orange);
+        case GREEN_FACE:
+            return &(this->green);
+        default:
+            return &(this->white);
+    }
+}
+
+
+
+unsigned Cube::getFace(unsigned FACE) {
+    return *(this->faceArr[FACE]);
+}
+
+void Cube::setFace(unsigned i, unsigned value) {
+    *(this->faceArr[i]) = value;
 }
 
 Cube Cube::rotate(int i) {
@@ -95,3 +140,11 @@ Cube Cube::rotate(int i) {
 }
 
 
+bool Cube::operator==(Cube &c) {
+    return (c.green == this->green
+            && c.red == this->red
+            && c.white == this->white
+            && c.blue == this->blue
+            && c.orange == this->orange
+            && c.yellow == this->yellow);
+}
