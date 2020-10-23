@@ -16,22 +16,60 @@
  * 3 * 8 * 6 = 144
  * 5 Integer = 160
  *
- * Cube Seiten reihenfolge:
+ * Cube Farben:
+ * 000: reserviert für NULL
+ * 001: weiß
+ * 010: grün
+ * 011: rot
+ * 100: gelb
+ * 101: blau
+ * 110: orange
  *
  * */
 
 class Cube {
 private:
-    int first;
-    int second;
-    int third;
-    int fourth;
-    int fifth;
+    unsigned white;
+    unsigned green;
+    unsigned red;
+    unsigned yellow;
+    unsigned blue;
+    unsigned orange;
+    unsigned* arr[6];
+    void generatePointerArray();
+
 public:
     Cube();
-    char getSequence(int i){
+    Cube(bool valid);
+    Cube(unsigned int white, unsigned int green, unsigned int red, unsigned int yellow, unsigned int blue,
+         unsigned int orange);
 
-    }
+    char getSequence(int i);
+    void setSequence(int i, unsigned seq);
+    unsigned getFace(char i);
+
+    //rotate Funktionen
+
+    Cube rotate(int i);
+
+    Cube rotateLeft();
+    Cube rotateLeftPrime();
+    Cube rotateRight();
+    Cube rotateRightPrime();
+    Cube rotateUp();
+    Cube rotateUpPrime();
+    Cube rotateDown();
+    Cube rotateDownPrime();
+    Cube rotateFront();
+    Cube rotateFrontPrime();
+    Cube rotateBack();
+    Cube rotateBackPrime();
+    Cube rotateXSlice();
+    Cube rotateXSlicePrime();
+    Cube rotateYSlice();
+    Cube rotateYSlicePrime();
+    Cube rotateZSlice();
+    Cube rotateZSlicePrime();
 };
 
 
