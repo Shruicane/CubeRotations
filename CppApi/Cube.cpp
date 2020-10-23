@@ -5,8 +5,8 @@
 #include "Cube.h"
 
 //TODO: Richige Farben einfügen sodass würfel gelöst ist
-Cube::Cube() : Cube(WHITE_FACE_SOLVED, GREEN_FACE_SOLVED, RED_FACE_SOLVED,
-                    YELLOW_FACE_SOLVED, BLUE_FACE_SOLVED, ORANGE_FACE_SOLVED) {
+Cube::Cube() : Cube(CubeConstants::WHITE_FACE_SOLVED, CubeConstants::GREEN_FACE_SOLVED, CubeConstants::RED_FACE_SOLVED,
+                    CubeConstants::YELLOW_FACE_SOLVED, CubeConstants::BLUE_FACE_SOLVED, CubeConstants::ORANGE_FACE_SOLVED) {
 }
 
 Cube::Cube(bool valid) : Cube(){
@@ -59,27 +59,27 @@ unsigned Cube::getSequence(unsigned i, unsigned source) {
 }
 
 void Cube::generateFaceArr() {
-    this->faceArr[WHITE_FACE] = &(this->white);
-    this->faceArr[RED_FACE] = &(this->red);
-    this->faceArr[BLUE_FACE] = &(this->blue);
-    this->faceArr[ORANGE_FACE] = &(this->orange);
-    this->faceArr[GREEN_FACE] = &(this->green);
-    this->faceArr[YELLOW_FACE] = &(this->yellow);
+    this->faceArr[CubeConstants::FACE_WHITE] = &(this->white);
+    this->faceArr[CubeConstants::FACE_RED] = &(this->red);
+    this->faceArr[CubeConstants::FACE_BLUE] = &(this->blue);
+    this->faceArr[CubeConstants::FACE_ORANGE] = &(this->orange);
+    this->faceArr[CubeConstants::FACE_GREEN] = &(this->green);
+    this->faceArr[CubeConstants::FACE_YELLOW] = &(this->yellow);
 }
 
 unsigned *Cube::resolveFaceIndex(unsigned i) {
     switch (i) {
-        case WHITE_FACE:
+        case CubeConstants::FACE_WHITE:
             return &(this->white);
-        case BLUE_FACE:
+        case CubeConstants::FACE_BLUE:
             return &(this->blue);
-        case RED_FACE:
+        case CubeConstants::FACE_RED:
             return &(this->red);
-        case YELLOW_FACE:
+        case CubeConstants::FACE_YELLOW:
             return &(this->yellow);
-        case ORANGE_FACE:
+        case CubeConstants::FACE_ORANGE:
             return &(this->orange);
-        case GREEN_FACE:
+        case CubeConstants::FACE_GREEN:
             return &(this->green);
         default:
             return &(this->white);

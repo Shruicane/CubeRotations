@@ -5,21 +5,9 @@
 #ifndef CUBEROTATIONS_CUBE_H
 #define CUBEROTATIONS_CUBE_H
 
-#define WHITE_FACE_SOLVED 0
-#define RED_FACE_SOLVED 0
-#define BLUE_FACE_SOLVED 0
-#define ORANGE_FACE_SOLVED 0
-#define GREEN_FACE_SOLVED 0
-#define YELLOW_FACE_SOLVED 0
-
-#define WHITE_FACE 0
-#define RED_FACE 1
-#define BLUE_FACE 2
-#define ORANGE_FACE 3
-#define GREEN_FACE 4
-#define YELLOW_FACE 5
-
 #include <iostream>
+#include "CubeConstants.h"
+
 using namespace std;
 /*
  * 3 bit pro Fläche * 9 = 27 * 6 = 162

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Cube.h"
+#include "CubeConstants.h"
 
 using namespace std;
 
@@ -17,8 +18,6 @@ int main() {
     for (int i = 0; i < 18; ++i) {
         c.rotate(i);
     }
-
-
 
     std::cout << "Hello, World!" << std::endl;
     return 0;
