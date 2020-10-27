@@ -46,7 +46,12 @@ private:
     unsigned rotateFace(unsigned FACE);
     unsigned rotateFaceInverted(unsigned FACE);
 
-    //Rotations
+
+    //help methoden
+    void copyRow(unsigned src, unsigned i1, unsigned i2, unsigned i3, unsigned destFACE, unsigned _i1, unsigned _i2, unsigned _i3);
+
+
+        //Rotations
     Cube rotateLeft();
     Cube rotateLeftPrime();
     Cube rotateRight();
@@ -80,7 +85,7 @@ public:
 
     unsigned getFace(unsigned FACE);
     Cube rotate(int i);
-    void setFace(unsigned i, unsigned value);
+    void setFace(unsigned FACE, unsigned value);
 
 };
 

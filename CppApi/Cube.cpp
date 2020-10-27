@@ -92,8 +92,8 @@ unsigned Cube::getFace(unsigned FACE) {
     return *(this->faceArr[FACE]);
 }
 
-void Cube::setFace(unsigned i, unsigned value) {
-    *(this->faceArr[i]) = value;
+void Cube::setFace(unsigned FACE, unsigned value) {
+    *(this->faceArr[FACE]) = value;
 }
 
 Cube Cube::rotate(int i) {

@@ -1,10 +1,11 @@
+
 cmake_minimum_required(VERSION 3.17)
 project(CubeRotations)
 
 set(CMAKE_CXX_STANDARD 14)
 
 find_package(PythonLibs 3.8 REQUIRED)
-find_package(Boost COMPONENTS python38 REQUIRED)
+#find_package(Boost COMPONENTS python38 REQUIRED)
 
 set(CMAKE_SHARED_MODULE_PREFIX "")
 
