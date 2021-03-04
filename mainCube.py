@@ -11,7 +11,7 @@ constants = cube.CubeConstants()
 stage_dic = {
             0: [(constants.FACE_WHITE,1,constants.COLOR_WHITE),(constants.FACE_WHITE,3,constants.COLOT_WHITE),
                  (constants.FACE_WHITE,5,constants.COLOR_WHITE),(constants.FACE_WHITE,7,constants.COLOR_WHITE),
-                 (constats.FACE_RED,7,constants.COLOR_RED),(constants.FACE_ORANGE,7,constants.COLOR_ORANGE),
+                 (constants.FACE_RED,7,constants.COLOR_RED),(constants.FACE_ORANGE,7,constants.COLOR_ORANGE),
                  (constants.FACE_GREEN,1,constants.COLOR_GREEN),(constants.COLOR_BLUE,7,constants.COLOR_BLUE)],
             1: [(constants.FACE_WHITE,2,constants.COLOR_WHITE),(constants.FACE_RED,6,constants.COLOR_RED),
                  (constants.FACE_WHITE,8,constants.COLOR_WHITE),(constants.FACE_RED,8,constants.COLOR_RED),
@@ -59,7 +59,7 @@ def rekFunk(turn,my_cube,funcWay):
 
 # endregion
 
-defaultCube = Cube()
+defaultCube = cube.Cube()
 way = []
 stepCube = scramble(defaultCube)
 
