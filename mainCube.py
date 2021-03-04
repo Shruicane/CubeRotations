@@ -2,14 +2,14 @@ import cube
 import random
 
 # region functions
-#stages definieren
-kreuz = 1
-#(Face,Field,Color)
+
 
 constants = cube.CubeConstants()
 
 stage_dic = {
   
+  #(Face,Field,Color)
+
   #Kreuz
             0: [(constants.FACE_WHITE,1,constants.COLOR_WHITE),(constants.FACE_WHITE,3,constants.COLOR_WHITE),
                  (constants.FACE_WHITE,5,constants.COLOR_WHITE),(constants.FACE_WHITE,7,constants.COLOR_WHITE),
