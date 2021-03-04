@@ -49,7 +49,7 @@ void Cube::setSequence(unsigned i, unsigned seq, unsigned &target) {
     unsigned left = target >> ((i+1) * 3) << ((i+1) * 3);
 
     //rechten teil des face extrahieren.
-    unsigned right = target << ( 29 - (i * 3) ) >> ( 29 - (i * 3) );
+    unsigned right = target << ( 29 - ((i+1) * 3) ) >> ( 29 - ((i+1) * 3) );
 
     //Alle drei teile zusammenfügen
     unsigned result = left | seq | right;

@@ -41,6 +41,8 @@ private:
     unsigned* faceArr[6];
     void generateFaceArr();
     unsigned* resolveFaceIndex(unsigned i);
+    void printBinary(unsigned input);
+
 
     //Face Rotation (anzahl rotationen im uhrzeigersinn)
     unsigned rotateFace(unsigned FACE);
@@ -70,6 +72,7 @@ private:
     Cube rotateYSlicePrime();
     Cube rotateZSlice();
     Cube rotateZSlicePrime();
+
 
 public:
     Cube();

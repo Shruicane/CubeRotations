@@ -1,5 +1,5 @@
 #include <iostream>
-#include <boost/python.hpp>
+//#include <boost/python.hpp>
 #include "Cube.h"
 #include "CubeConstants.h"
 
@@ -29,7 +29,7 @@ void setSequence(unsigned i, unsigned seq, unsigned &target) {
     unsigned left = target >> ((i+1) * 3) << ((i+1) * 3);
 
     //rechten teil des face extrahieren.
-    unsigned right = target << ( 29 - (i * 3) ) >> ( 29 - (i * 3) );
+    unsigned right = target << ( 32 - (i * 3) ) >> ( 32 - (i * 3) );
 
     //Alle drei teile zusammenfügen
     unsigned result = left | seq | right;
@@ -110,18 +110,29 @@ void printCube(Cube &c){
 
 int main() {
 
-    Cube cube = generateSolvedFaces();
+    /*Cube cube = generateSolvedFaces();
     printCube(cube);
     cube.rotate(0);
     printCube(cube);
     cube.rotate(1);
     printCube(cube);
+    cube.getSequence(0, cube.getFace(CubeConstants::FACE_GREEN));*/
+
+    unsigned testRes = 3;
+    unsigned testIn = 6;
+
+    setSequence(0, testIn, testRes);
+
+    cout << "Test Res: " << testRes << endl;
+    testRes = 3;
+    testRes = testRes << 32;
+    cout << "Test " << (testRes) << endl;
 
 
     std::cout << "Hello, World!" << std::endl;
     return 0;
 }
-
+/*
 BOOST_PYTHON_MODULE(cube) {
     using namespace boost::python;
 
@@ -131,4 +142,4 @@ BOOST_PYTHON_MODULE(cube) {
 
     class_<>
 }
-
+*/

@@ -1,5 +1,6 @@
 #include "Cube.h"
 
+
 Cube Cube::rotateLeft() {
 
     this->setFace(CubeConstants::FACE_ORANGE, this->rotateFace(CubeConstants::FACE_ORANGE));
@@ -210,6 +211,15 @@ void Cube::copyRow(unsigned src, unsigned i1, unsigned i2, unsigned i3, unsigned
     this->setFace(destFACE, res);
 }
 
+void Cube::printBinary(unsigned input){
+
+    for (int i = 0; i < 32; ++i) {
+        unsigned out = (input << i) >> 31;
+        //unsigned out = (input << (32 - i)) >> 31; //use this line for inverted bit order (MSB on the right, LSB on the left hand side)
+        cout << out;
+    }
+    cout << endl;
+}
 
 
 
