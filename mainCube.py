@@ -19,7 +19,7 @@ def rekFunk(turn,cube,funcWay):
             return True
         return False
     else:
-        for i in range(18):
+        for i in range(12):
             funcWay.append(i)
             newCube = cube.rotate(i)
             if rekFunk(turn+1, newCube, funcWay):
