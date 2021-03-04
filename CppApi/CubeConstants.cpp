@@ -42,12 +42,12 @@ const int CubeConstants::CHECK_YELLOW_CORNER_FACE_4;
 
 
 // face checks
-const int WHITE_FACE_SOLVED = 0;
-const int RED_FACE_SOLVED = 0;
-const int BLUE_FACE_SOLVED = 0;
-const int ORANGE_FACE_SOLVED = 0;
-const int GREEN_FACE_SOLVED = 0;
-const int YELLOW_FACE_SOLVED = 0;
+const int WHITE_FACE_SOLVED = 19173961;
+const int RED_FACE_SOLVED = 38347922;
+const int BLUE_FACE_SOLVED = 57521883;
+const int ORANGE_FACE_SOLVED = 76695844;
+const int GREEN_FACE_SOLVED = 95869805;
+const int YELLOW_FACE_SOLVED = 115043766;
 
 // rotates
 const int CubeConstants::ROTATE_LEFT;

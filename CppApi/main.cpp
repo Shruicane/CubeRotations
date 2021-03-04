@@ -15,6 +15,35 @@ void printBin(unsigned input){
     cout << endl;
 }
 
+void printCube(Cube &c){
+
+
+    cout << "White Face: ";
+    printBin(c.getFace(CubeConstants::FACE_WHITE));
+    cout << "Red Face: ";
+    printBin(c.getFace(CubeConstants::FACE_RED));
+    cout << "Blue Face: ";
+    printBin(c.getFace(CubeConstants::FACE_BLUE));
+    cout << "Orange Face: ";
+    printBin(c.getFace(CubeConstants::FACE_ORANGE));
+    cout << "Green Face: ";
+    printBin(c.getFace(CubeConstants::FACE_GREEN));
+    cout << "Yellow Face: ";
+    printBin(c.getFace(CubeConstants::FACE_YELLOW));
+    cout << "\n" << endl;
+
+    /*cout << "        | 0 1 2 |" << endl;
+    cout << "        | 0 1 2 |" << endl;
+    cout << "        | 0 1 2 |" << endl;
+    cout << "| 0 1 2 | 0 1 2 | 0 1 2 | 0 1 2 |" << endl;
+    cout << "| 0 1 2 | 0 1 2 | 0 1 2 | 0 1 2 |" << endl;
+    cout << "| 0 1 2 | 0 1 2 | 0 1 2 | 0 1 2 |" << endl;
+    cout << "        | 0 1 2 |" << endl;
+    cout << "        | 0 1 2 |" << endl;
+    cout << "        | 0 1 2 |" << endl;
+*/
+}
+
 unsigned getSequence(unsigned i, unsigned source) {
     //index geht in dreier schritten voran
     return source << (32 - ((i+1) * 3)) >> (32 - 3);
@@ -84,37 +113,12 @@ Cube generateSolvedFaces(){
     }
     solved.setFace(CubeConstants::FACE_YELLOW, res);
 
+    printCube(solved);
+
     return solved;
 }
 
-void printCube(Cube &c){
 
-
-    cout << "White Face: ";
-    printBin(c.getFace(CubeConstants::FACE_WHITE));
-    cout << "Red Face: ";
-    printBin(c.getFace(CubeConstants::FACE_RED));
-    cout << "Blue Face: ";
-    printBin(c.getFace(CubeConstants::FACE_BLUE));
-    cout << "Orange Face: ";
-    printBin(c.getFace(CubeConstants::FACE_ORANGE));
-    cout << "Green Face: ";
-    printBin(c.getFace(CubeConstants::FACE_GREEN));
-    cout << "Yellow Face: ";
-    printBin(c.getFace(CubeConstants::FACE_YELLOW));
-    cout << "\n" << endl;
-
-    /*cout << "        | 0 1 2 |" << endl;
-    cout << "        | 0 1 2 |" << endl;
-    cout << "        | 0 1 2 |" << endl;
-    cout << "| 0 1 2 | 0 1 2 | 0 1 2 | 0 1 2 |" << endl;
-    cout << "| 0 1 2 | 0 1 2 | 0 1 2 | 0 1 2 |" << endl;
-    cout << "| 0 1 2 | 0 1 2 | 0 1 2 | 0 1 2 |" << endl;
-    cout << "        | 0 1 2 |" << endl;
-    cout << "        | 0 1 2 |" << endl;
-    cout << "        | 0 1 2 |" << endl;
-*/
-}
 
 int main() {
 
