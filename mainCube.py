@@ -13,7 +13,7 @@ stage_dic = {
   #Kreuz
             0: [(constants.FACE_WHITE,1,constants.COLOR_WHITE),(constants.FACE_WHITE,3,constants.COLOT_WHITE),
                  (constants.FACE_WHITE,5,constants.COLOR_WHITE),(constants.FACE_WHITE,7,constants.COLOR_WHITE),
-                 (constats.FACE_RED,7,constants.COLOR_RED),(constants.FACE_ORANGE,7,constants.COLOR_ORANGE),
+                 (constants.FACE_RED,7,constants.COLOR_RED),(constants.FACE_ORANGE,7,constants.COLOR_ORANGE),
                  (constants.FACE_GREEN,1,constants.COLOR_GREEN),(constants.COLOR_BLUE,7,constants.COLOR_BLUE)],
   #Ecken
             1: [(constants.FACE_WHITE,2,constants.COLOR_WHITE),(constants.FACE_RED,6,constants.COLOR_RED)],
@@ -24,7 +24,7 @@ stage_dic = {
             5: [(constants.FACE_BLUE,5,constants.COLOR_BLUE),(constants.FACE_RED,3,constants.COLOR_RED)],
             6: [(constants.FACE_RED,5,constants.COLOR_RED),(constants.FACE_GREEN,5,constants.COLOR_GREEN)],
             7: [(constants.FACE_GREEN,3,constants.COLOR_GREEN),(constants.FACE_ORANGE,3,constants.COLOR_ORANGE)],
-            8: [(constants.FACE_ORANGE,5,constants.COLOR_ORANGE),(constants.FACE_BLUE,3,constants.COLOR_BLUE)]
+            8: [(constants.FACE_ORANGE,5,constants.COLOR_ORANGE),(constants.FACE_BLUE,3,constants.COLOR_BLUE)],
   #YELLOW CROSS
             9: [(constants.FACE_YELLOW,1,constants.COLOR_YELLOW),(constants.FACE_YELLOW,3,constants.COLOR_YELLOW),
                 (constants.FACE_YELLOW,5,constants.COLOR_YELLOW),(constants.FACE_YELLOW,7,constants.COLOR_YELLOW)],
@@ -76,9 +76,10 @@ def rekFunk(turn,my_cube,funcWay):
                 return True
         return False
 
-# endregion
+# endregionpuff
 
-defaultCube = Cube()
+
+defaultCube = cube.Cube()
 way = []
 stepCube = scramble(defaultCube)
 
