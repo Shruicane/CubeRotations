@@ -140,7 +140,6 @@ Cube Cube::rotate(int i) {
     }
 }
 
-
 bool Cube::operator==(Cube &c) {
     return (c.green == this->green
             && c.red == this->red

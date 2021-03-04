@@ -1,4 +1,4 @@
-import Cube
+import cube
 import random
 
 # region functions
@@ -30,7 +30,7 @@ def rekFunk(turn,cube,funcWay):
 
 defaultCube = Cube()
 way = []
-stepCube = scrumble(defaultCube)
+stepCube = scramble(defaultCube)
 
 for stage in range(10):
     turns = 0

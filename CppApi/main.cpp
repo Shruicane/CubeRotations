@@ -1,4 +1,5 @@
 #include <iostream>
+#include <boost/python.hpp>
 #include "Cube.h"
 #include "CubeConstants.h"
 
@@ -120,3 +121,14 @@ int main() {
     std::cout << "Hello, World!" << std::endl;
     return 0;
 }
+
+BOOST_PYTHON_MODULE(cube) {
+    using namespace boost::python;
+
+    class_<Cube>("Cube")
+            .def("rotate", &Cube::rotate)
+            ;
+
+    class_<>
+}
+
