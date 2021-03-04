@@ -46,7 +46,7 @@ def check(my_cube, my_stage):
     for i in range(my_stage+1):
         check_list = stage_dic[i] 
         for condition in check_list:
-            if my_cube.getsequence(condition[1],my_cube.getFace(condition[0])) == condition[2]:
+            if my_cube.getSequence(condition[1],my_cube.getFace(condition[0])) == condition[2]:
                 pass
             else:
                 return False
