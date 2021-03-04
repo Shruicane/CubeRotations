@@ -47,12 +47,12 @@ struct CubeConstants
 
 
     // face checks
-    static const int WHITE_FACE_SOLVED = 0;
-    static const int RED_FACE_SOLVED = 0;
-    static const int BLUE_FACE_SOLVED = 0;
-    static const int ORANGE_FACE_SOLVED = 0;
-    static const int GREEN_FACE_SOLVED = 0;
-    static const int YELLOW_FACE_SOLVED = 0;
+    static const int WHITE_FACE_SOLVED = 19173961;
+    static const int RED_FACE_SOLVED = 38347922;
+    static const int BLUE_FACE_SOLVED = 57521883;
+    static const int ORANGE_FACE_SOLVED = 76695844;
+    static const int GREEN_FACE_SOLVED = 95869805;
+    static const int YELLOW_FACE_SOLVED = 115043766;
 
     // rotates
     static const int ROTATE_LEFT = 0;

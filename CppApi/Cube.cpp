@@ -5,8 +5,8 @@
 #include "Cube.h"
 
 //TODO: Richige Farben einfügen sodass würfel gelöst ist
-Cube::Cube() : Cube(CubeConstants::WHITE_FACE_SOLVED, CubeConstants::GREEN_FACE_SOLVED, CubeConstants::RED_FACE_SOLVED,
-                    CubeConstants::YELLOW_FACE_SOLVED, CubeConstants::BLUE_FACE_SOLVED, CubeConstants::ORANGE_FACE_SOLVED) {
+Cube::Cube() : Cube(CubeConstants::WHITE_FACE_SOLVED, CubeConstants::RED_FACE_SOLVED, CubeConstants::BLUE_FACE_SOLVED, CubeConstants::ORANGE_FACE_SOLVED,
+                    CubeConstants::GREEN_FACE_SOLVED, CubeConstants::YELLOW_FACE_SOLVED) {
 }
 
 Cube::Cube(bool valid) : Cube(){
@@ -23,7 +23,7 @@ Cube::Cube(bool valid) : Cube(){
 Cube::Cube(unsigned white, unsigned red, unsigned blue, unsigned orange, unsigned green,
            unsigned yellow) : white(white), green(green), red(red), yellow(yellow), blue(blue), orange(orange)
 {
-    generateFaceArr();
+    this->generateFaceArr();
 }
 
 Cube::Cube(const Cube &cube) {
@@ -95,10 +95,16 @@ unsigned *Cube::resolveFaceIndex(unsigned i) {
 }
 
 unsigned Cube::getFace(unsigned FACE) {
-    return *(this->faceArr[FACE]);
+
+    unsigned *val = this->faceArr[FACE];
+    unsigned valOfVal = *val;
+
+    return valOfVal;
 }
 
 void Cube::setFace(unsigned FACE, unsigned value) {
+    this->faceArr[FACE];
+
     *(this->faceArr[FACE]) = value;
 }
 
@@ -143,6 +149,50 @@ Cube Cube::rotate(int i) {
         default:
             return *this;
     }
+}
+
+void Cube::printCube(bool showLegend){
+
+    unsigned faceWhite = getFace(CubeConstants::FACE_WHITE);
+    unsigned faceRed = getFace(CubeConstants::FACE_RED);
+    unsigned faceBlue = getFace(CubeConstants::FACE_BLUE);
+    unsigned faceOrange = getFace(CubeConstants::FACE_ORANGE);
+    unsigned faceGreen = getFace(CubeConstants::FACE_GREEN);
+    unsigned faceYellow = getFace(CubeConstants::FACE_YELLOW);
+
+    if(showLegend) {
+        cout << "White  := 1" << endl;
+        cout << "Red    := 2" << endl;
+        cout << "Blue   := 3" << endl;
+        cout << "Orange := 4" << endl;
+        cout << "Green  := 5" << endl;
+        cout << "Yellow := 6 \n" << endl;
+    }
+
+    cout << "        | " << getSequence(0, faceGreen) << " " << getSequence(1, faceGreen) << " " << getSequence(2, faceGreen) << " |" << endl;
+    cout << "        | " << getSequence(3, faceGreen) << " " << getSequence(4, faceGreen) << " " << getSequence(5, faceGreen) << " |" << endl;
+    cout << "        | " << getSequence(6, faceGreen) << " " << getSequence(7, faceGreen) << " " << getSequence(8, faceGreen) << " |" << endl;
+    //Mittelzeile 1
+    cout << "| " << getSequence(6, faceOrange) << " " << getSequence(3, faceOrange) << " " << getSequence(0, faceOrange) << " |"
+            << " " << getSequence(0, faceYellow) << " " << getSequence(1, faceYellow) << " " << getSequence(2, faceYellow) << " |"
+            << " " << getSequence(2, faceRed) << " " << getSequence(5, faceRed) << " " << getSequence(8, faceRed) << " |"
+            << " " << getSequence(8, faceWhite) << " " << getSequence(7, faceWhite) << " " << getSequence(6, faceWhite) << " |" << endl;
+
+    //Mittelzeile 2
+    cout << "| " << getSequence(7, faceOrange) << " " << getSequence(4, faceOrange) << " " << getSequence(1, faceOrange) << " |"
+         << " " << getSequence(3, faceYellow) << " " << getSequence(4, faceYellow) << " " << getSequence(5, faceYellow) << " |"
+         << " " << getSequence(1, faceRed) << " " << getSequence(4, faceRed) << " " << getSequence(7, faceRed) << " |"
+         << " " << getSequence(5, faceWhite) << " " << getSequence(4, faceWhite) << " " << getSequence(3, faceWhite) << " |" << endl;
+    //Mittelzeile 3
+    cout << "| " << getSequence(8, faceOrange) << " " << getSequence(5, faceOrange) << " " << getSequence(2, faceOrange) << " |"
+         << " " << getSequence(6, faceYellow) << " " << getSequence(7, faceYellow) << " " << getSequence(8, faceYellow) << " |"
+         << " " << getSequence(0, faceRed) << " " << getSequence(3, faceRed) << " " << getSequence(6, faceRed) << " |"
+         << " " << getSequence(2, faceWhite) << " " << getSequence(1, faceWhite) << " " << getSequence(0, faceWhite) << " |" << endl;
+
+    cout << "        | " << getSequence(0, faceBlue) << " " << getSequence(0, faceBlue) << " " << getSequence(0, faceBlue) << " |" << endl;
+    cout << "        | " << getSequence(3, faceBlue) << " " << getSequence(4, faceBlue) << " " << getSequence(5, faceBlue) << " |" << endl;
+    cout << "        | " << getSequence(6, faceBlue) << " " << getSequence(7, faceBlue) << " " << getSequence(8, faceBlue) << " |" << endl;
+
 }
 
 bool Cube::operator==(Cube &c) {

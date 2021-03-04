@@ -113,8 +113,6 @@ Cube generateSolvedFaces(){
     }
     solved.setFace(CubeConstants::FACE_YELLOW, res);
 
-    printCube(solved);
-
     return solved;
 }
 
@@ -122,14 +120,10 @@ Cube generateSolvedFaces(){
 
 int main() {
 
-    Cube cube = generateSolvedFaces();
-    printCube(cube);
-    cube.rotate(10);
-    printCube(cube);
-    cube.rotate(11);
-    printCube(cube);
-    cube.getSequence(0, cube.getFace(CubeConstants::FACE_GREEN));
+    generateSolvedFaces();
 
+    Cube solvedCube = Cube();
+    solvedCube.printCube();
 
     std::cout << "Hello, World!" << std::endl;
     return 0;
