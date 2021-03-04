@@ -11,7 +11,7 @@ constants = cube.CubeConstants()
 stage_dic = {
   
   #Kreuz
-            0: [(constants.FACE_WHITE,1,constants.COLOR_WHITE),(constants.FACE_WHITE,3,constants.COLOT_WHITE),
+            0: [(constants.FACE_WHITE,1,constants.COLOR_WHITE),(constants.FACE_WHITE,3,constants.COLOR_WHITE),
                  (constants.FACE_WHITE,5,constants.COLOR_WHITE),(constants.FACE_WHITE,7,constants.COLOR_WHITE),
                  (constants.FACE_RED,7,constants.COLOR_RED),(constants.FACE_ORANGE,7,constants.COLOR_ORANGE),
                  (constants.FACE_GREEN,1,constants.COLOR_GREEN),(constants.COLOR_BLUE,7,constants.COLOR_BLUE)],
@@ -39,7 +39,7 @@ stage_dic = {
             14: [(constants.FACE_BLUE,2,constants.COLOR_BLUE)],
             15: [(constants.FACE_RED,2,constants.COLOR_RED)],
             16: [(constants.FACE_GREEN,6,constants.COLOR_GREEN)],
-            17: [(constants.FACE_ORANGE,1,constants.COLOR_ORANGE)],  
+            17: [(constants.FACE_ORANGE,2,constants.COLOR_ORANGE)],  
                  }
 
 def check(my_cube, my_stage):
