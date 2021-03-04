@@ -107,10 +107,10 @@ Cube Cube::rotateFrontPrime() {
 
     this->setFace(CubeConstants::FACE_BLUE, this->rotateFaceInverted(CubeConstants::FACE_BLUE));
     Cube cube(*this);
-    this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 8, 5, 2, CubeConstants::FACE_ORANGE, 6, 7, 8);
-    this->copyRow(cube.getFace(CubeConstants::FACE_RED), 6, 7, 8, CubeConstants::FACE_YELLOW, 0, 3, 6);
-    this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 0, 3, 6, CubeConstants::FACE_RED, 2, 1, 0);
-    this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 2, 1, 0, CubeConstants::FACE_WHITE, 8, 5, 2);
+    this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 8, 7, 6, CubeConstants::FACE_ORANGE, 2, 5, 8);
+    this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 2, 5, 8, CubeConstants::FACE_WHITE, 0, 1, 2);
+    this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 0, 1, 2, CubeConstants::FACE_RED, 6, 3, 0);
+    this->copyRow(cube.getFace(CubeConstants::FACE_RED), 6, 3, 0, CubeConstants::FACE_YELLOW, 8, 7, 6);
     return *this;
 }
 
@@ -118,10 +118,10 @@ Cube Cube::rotateBack() {
 
     this->setFace(CubeConstants::FACE_GREEN, this->rotateFace(CubeConstants::FACE_GREEN));
     Cube cube(*this);
-    this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 8, 5, 2, CubeConstants::FACE_ORANGE, 6, 7, 8);
-    this->copyRow(cube.getFace(CubeConstants::FACE_RED), 6, 7, 8, CubeConstants::FACE_YELLOW, 0, 3, 6);
-    this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 0, 3, 6, CubeConstants::FACE_RED, 2, 1, 0);
-    this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 2, 1, 0, CubeConstants::FACE_WHITE, 8, 5, 2);
+    this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 2, 1, 0, CubeConstants::FACE_ORANGE, 0, 3, 6);
+    this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 0, 3, 6, CubeConstants::FACE_WHITE, 6, 7, 8);
+    this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 6, 7, 8, CubeConstants::FACE_RED, 8, 5, 2);
+    this->copyRow(cube.getFace(CubeConstants::FACE_RED), 8, 5, 2, CubeConstants::FACE_YELLOW, 2, 1, 0);
     return *this;
 }
 
@@ -129,10 +129,10 @@ Cube Cube::rotateBackPrime() {
 
     this->setFace(CubeConstants::FACE_GREEN, this->rotateFaceInverted(CubeConstants::FACE_GREEN));
     Cube cube(*this);
-    this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 8, 5, 2, CubeConstants::FACE_YELLOW, 6, 7, 8);
-    this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 6, 7, 8, CubeConstants::FACE_RED, 0, 3, 6);
-    this->copyRow(cube.getFace(CubeConstants::FACE_RED), 0, 3, 6, CubeConstants::FACE_WHITE, 2, 1, 0);
-    this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 2, 1, 0, CubeConstants::FACE_ORANGE, 8, 5, 2);
+    this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 6, 3, 0, CubeConstants::FACE_YELLOW, 0, 1, 2);
+    this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 0, 1, 2, CubeConstants::FACE_RED, 2, 5, 8);
+    this->copyRow(cube.getFace(CubeConstants::FACE_RED), 2, 5, 8, CubeConstants::FACE_WHITE, 8, 7, 6);
+    this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 8, 7, 6, CubeConstants::FACE_ORANGE, 6, 3, 0);
     return *this;
 }
 
@@ -196,6 +196,13 @@ unsigned Cube::rotateFaceInverted(unsigned FACE) {
 }
 
 void Cube::copyRow(unsigned src, unsigned i1, unsigned i2, unsigned i3, unsigned destFACE, unsigned _i1, unsigned _i2, unsigned _i3){
+    /*
+     * src = bitstring of Face you want to copy
+     * destFACE = ID of the Face you want to replace
+     * i1...3 = origin index
+     * _i1...3 = destination index
+     *
+     * */
     unsigned res = this->getFace(destFACE);
     this->setSequence(_i1, this->getSequence(i1, src), res);
     this->setSequence(_i2, this->getSequence(i2, src), res);

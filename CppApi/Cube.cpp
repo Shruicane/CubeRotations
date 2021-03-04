@@ -86,8 +86,6 @@ unsigned *Cube::resolveFaceIndex(unsigned i) {
     }
 }
 
-
-
 unsigned Cube::getFace(unsigned FACE) {
     return *(this->faceArr[FACE]);
 }
