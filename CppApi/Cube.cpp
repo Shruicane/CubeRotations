@@ -37,6 +37,7 @@ Cube::Cube(const Cube &cube) {
 }
 
 void Cube::setSequence(unsigned i, unsigned seq, unsigned &target) {
+
     //Maximalwert 9
     i = i % 9;
 
@@ -49,12 +50,16 @@ void Cube::setSequence(unsigned i, unsigned seq, unsigned &target) {
     unsigned left = target >> ((i+1) * 3) << ((i+1) * 3);
 
     //rechten teil des face extrahieren.
-    unsigned right = target << ( 29 - ((i+1) * 3) ) >> ( 29 - ((i+1) * 3) );
+    unsigned right = 0;
+    if(i != 0){
+        right = target << ( 32 - (i * 3) ) >> ( 32 - (i * 3) );
+    }
 
     //Alle drei teile zusammenfügen
     unsigned result = left | seq | right;
     target = result;
 }
+
 
 unsigned Cube::getSequence(unsigned i, unsigned source) {
     //index geht in dreier schritten voran

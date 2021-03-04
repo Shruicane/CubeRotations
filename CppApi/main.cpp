@@ -15,6 +15,11 @@ void printBin(unsigned input){
     cout << endl;
 }
 
+unsigned getSequence(unsigned i, unsigned source) {
+    //index geht in dreier schritten voran
+    return source << (32 - ((i+1) * 3)) >> (32 - 3);
+}
+
 void setSequence(unsigned i, unsigned seq, unsigned &target) {
 
     //Maximalwert 9
@@ -29,7 +34,10 @@ void setSequence(unsigned i, unsigned seq, unsigned &target) {
     unsigned left = target >> ((i+1) * 3) << ((i+1) * 3);
 
     //rechten teil des face extrahieren.
-    unsigned right = target << ( 32 - (i * 3) ) >> ( 32 - (i * 3) );
+    unsigned right = 0;
+    if(i != 0){
+        right = target << ( 32 - (i * 3) ) >> ( 32 - (i * 3) );
+    }
 
     //Alle drei teile zusammenfügen
     unsigned result = left | seq | right;
@@ -110,23 +118,13 @@ void printCube(Cube &c){
 
 int main() {
 
-    /*Cube cube = generateSolvedFaces();
+    Cube cube = generateSolvedFaces();
     printCube(cube);
-    cube.rotate(0);
+    cube.rotate(10);
     printCube(cube);
-    cube.rotate(1);
+    cube.rotate(11);
     printCube(cube);
-    cube.getSequence(0, cube.getFace(CubeConstants::FACE_GREEN));*/
-
-    unsigned testRes = 3;
-    unsigned testIn = 6;
-
-    setSequence(0, testIn, testRes);
-
-    cout << "Test Res: " << testRes << endl;
-    testRes = 3;
-    testRes = testRes << 32;
-    cout << "Test " << (testRes) << endl;
+    cube.getSequence(0, cube.getFace(CubeConstants::FACE_GREEN));
 
 
     std::cout << "Hello, World!" << std::endl;
