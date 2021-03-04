@@ -8,18 +8,29 @@ kreuz = 1
 
 constants = cube.CubeConstants()
 
-stage_dic = {0: [(constants.FACE_WHITE,1,constants.COLOR_WHITE),(constants.FACE_WHITE,3,constants.COLOT_WHITE),
+stage_dic = {
+            0: [(constants.FACE_WHITE,1,constants.COLOR_WHITE),(constants.FACE_WHITE,3,constants.COLOT_WHITE),
                  (constants.FACE_WHITE,5,constants.COLOR_WHITE),(constants.FACE_WHITE,7,constants.COLOR_WHITE),
-                 (constats.FACE_RED,7,constants.COLOR_RED),(constants.FACE_ORANGE,7,constants.COLOR_ORANGE),
-                 (constants.FACE_GREEN,1,constants.COLOR_GREEN),(constants.COLOR_BLUE,7,constants.COLOR_BLUE)]}
+                 (constants.FACE_RED,7,constants.COLOR_RED),(constants.FACE_ORANGE,7,constants.COLOR_ORANGE),
+                 (constants.FACE_GREEN,1,constants.COLOR_GREEN),(constants.COLOR_BLUE,7,constants.COLOR_BLUE)],
+            1: [(constants.FACE_WHITE,2,constants.COLOR_WHITE),(constants.FACE_RED,6,constants.COLOR_RED),
+                 (constants.FACE_WHITE,8,constants.COLOR_WHITE),(constants.FACE_RED,8,constants.COLOR_RED),
+                 (constants.FACE_WHITE,6,constants.COLOR_WHITE),(constants.FACE_ORANGE,6,constants.COLOR_ORANGE),
+                 (constants.FACE_WHITE,0,constants.COLOR_WHITE),(constants.FACE_ORANGE,8,constants.COLOR_ORANGE)]
+            2: [(constants.FACE_WHITE,2,constants.COLOR_WHITE),(constants.FACE_RED,6,constants.COLOR_RED),
+                (constants.FACE_WHITE,8,constants.COLOR_WHITE),(constants.FACE_RED,8,constants.COLOR_RED),
+                (constants.FACE_WHITE,6,constants.COLOR_WHITE),(constants.FACE_ORANGE,6,constants.COLOR_ORANGE),
+                (constants.FACE_WHITE,0,constants.COLOR_WHITE),(constants.FACE_ORANGE,8,constants.COLOR_ORANGE)]
+}
 
 def check(my_cube, my_stage):
-    check_list = stage_dic[my_stage] 
-    for condition in check_list:
-        if my_cube.getsequence(condition[1],my_cube.getFace(condition[0])) == condition[2]:
-            pass
-        else:
-            return False
+    for i in range(my_stage+1):
+        check_list = stage_dic[i] 
+        for condition in check_list:
+            if my_cube.getsequence(condition[1],my_cube.getFace(condition[0])) == condition[2]:
+                pass
+            else:
+                return False
     return True
        
        
@@ -48,14 +59,14 @@ def rekFunk(turn,my_cube,funcWay):
 
 # endregion
 
-defaultCube = Cube()
+defaultCube = cube.Cube()
 way = []
 stepCube = scramble(defaultCube)
 
-for stage in range(1):
+for stage in range(2):
     turns = 0
     print ("Running Stage %.", stage)
     while not rekFunk(0,stepCube,[]):
         turns+=1
 
-print('love everywhere')
+
