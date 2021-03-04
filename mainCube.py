@@ -87,6 +87,7 @@ for stage in range(18):
     turns = 0
     print ("Running Stage %.", stage)
     while not rekFunk(0,stepCube,[]):
+        print("Running Turn %.", turn)
         turns+=1
 
 
