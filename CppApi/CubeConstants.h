@@ -5,7 +5,12 @@ namespace CubeConstants
 {
     // colors
     const int COLOR_EMPTY = 0;
-    const int COLOR_WHITE = 0;
+    const int COLOR_WHITE = 1;
+    const int COLOR_RED = 2;
+    const int COLOR_BLUE = 3;
+    const int COLOR_ORANGE = 4;
+    const int COLOR_GREEN = 5;
+    const int COLOR_YELLOW = 6;
 
     // Faces
     const int FACE_WHITE = 0;

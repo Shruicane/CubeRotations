@@ -37,17 +37,20 @@ Cube::Cube(const Cube &cube) {
 }
 
 void Cube::setSequence(unsigned i, unsigned seq, unsigned &target) {
-    //Alles links der niederwertigsten 3 Bit löschen
+    //Maximalwert 9
+    i = i % 9;
+
+    //Alles links der niederwertigsten 3 Bit löschen (eigentlich unnötig)
     seq = (seq << 29) >> 29;
     //Verschiebung an den Index
     seq = seq << (i * 3);
+
     //Linken teil des face extrahieren
     unsigned left = target >> ((i+1) * 3) << ((i+1) * 3);
-    //rechten teil des face extrahieren. +2 addieren weil int laenge
-    unsigned right = 0;
-    if( i != 0){
-        right = target << ( 2 + ((i+1) * 3) ) >> ( 2 + ((i+1) * 3) );
-    }
+
+    //rechten teil des face extrahieren.
+    unsigned right = target << ( 29 - (i * 3) ) >> ( 29 - (i * 3) );
+
     //Alle drei teile zusammenfügen
     unsigned result = left | seq | right;
     target = result;
