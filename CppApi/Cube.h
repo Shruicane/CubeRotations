@@ -6,6 +6,7 @@
 #define CUBEROTATIONS_CUBE_H
 
 #include <iostream>
+#include <random>
 #include "CubeConstants.h"
 
 using namespace std;
@@ -81,7 +82,7 @@ public:
     Cube(unsigned int white, unsigned int red, unsigned int blue, unsigned int orange, unsigned int green,
          unsigned int yellow);
     void printCube(bool showLegend);
-    Cube getScrambledCube();
+    Cube setScrambled();
     bool operator==(Cube &c);
 
     unsigned getSequence(unsigned i, unsigned source);

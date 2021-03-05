@@ -1,4 +1,3 @@
-#include <random>
 #include "Cube.h"
 
 
@@ -222,20 +221,6 @@ void Cube::printBinary(unsigned input){
     cout << endl;
 }
 
-Cube Cube::getScrambledCube() {
-    Cube solved;
-
-    std::random_device rd;
-    std::mt19937 mt(rd());
-    std::uniform_real_distribution<double> dist(0.0, 12.0);
-
-    for (int i = 0; i < 20; ++i) {
-        int random = dist(mt);
-        solved.rotate(random);
-    }
-
-    return solved;
-}
 
 
 

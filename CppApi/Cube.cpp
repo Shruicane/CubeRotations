@@ -189,7 +189,7 @@ void Cube::printCube(bool showLegend){
          << " " << getSequence(0, faceRed) << " " << getSequence(3, faceRed) << " " << getSequence(6, faceRed) << " |"
          << " " << getSequence(2, faceWhite) << " " << getSequence(1, faceWhite) << " " << getSequence(0, faceWhite) << " |" << endl;
 
-    cout << "        | " << getSequence(0, faceBlue) << " " << getSequence(0, faceBlue) << " " << getSequence(0, faceBlue) << " |" << endl;
+    cout << "        | " << getSequence(0, faceBlue) << " " << getSequence(1, faceBlue) << " " << getSequence(2, faceBlue) << " |" << endl;
     cout << "        | " << getSequence(3, faceBlue) << " " << getSequence(4, faceBlue) << " " << getSequence(5, faceBlue) << " |" << endl;
     cout << "        | " << getSequence(6, faceBlue) << " " << getSequence(7, faceBlue) << " " << getSequence(8, faceBlue) << " |" << endl;
 
@@ -202,4 +202,24 @@ bool Cube::operator==(Cube &c) {
             && c.blue == this->blue
             && c.orange == this->orange
             && c.yellow == this->yellow);
+}
+
+Cube Cube::setScrambled() {
+    Cube scrambled;
+
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::uniform_real_distribution<double> dist(0.0, 12.0);
+
+    for (int i = 0; i < 20; ++i) {
+        int random = dist(mt);
+        scrambled.rotate(random);
+    }
+    this->setFace(CubeConstants::FACE_WHITE, scrambled.getFace(CubeConstants::FACE_WHITE));
+    this->setFace(CubeConstants::FACE_RED, scrambled.getFace(CubeConstants::FACE_RED));
+    this->setFace(CubeConstants::FACE_BLUE, scrambled.getFace(CubeConstants::FACE_WHITE));
+    this->setFace(CubeConstants::FACE_ORANGE, scrambled.getFace(CubeConstants::FACE_ORANGE));
+    this->setFace(CubeConstants::FACE_GREEN, scrambled.getFace(CubeConstants::FACE_GREEN));
+    this->setFace(CubeConstants::FACE_YELLOW, scrambled.getFace(CubeConstants::FACE_YELLOW));
+    return scrambled;
 }
