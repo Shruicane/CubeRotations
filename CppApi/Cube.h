@@ -81,7 +81,7 @@ public:
     Cube(unsigned int white, unsigned int red, unsigned int blue, unsigned int orange, unsigned int green,
          unsigned int yellow);
     void printCube(bool showLegend);
-
+    Cube getScrambledCube();
     bool operator==(Cube &c);
 
     unsigned getSequence(unsigned i, unsigned source);

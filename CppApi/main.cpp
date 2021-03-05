@@ -1,4 +1,5 @@
 #include <iostream>
+#include <random>
 //#include <boost/python.hpp>
 #include "Cube.h"
 #include "CubeConstants.h"
@@ -75,7 +76,7 @@ void setSequence(unsigned i, unsigned seq, unsigned &target) {
 
 Cube generateSolvedFaces(){
 
-    Cube solved = Cube(0, 0, 0, 0, 0, 0);
+    Cube solved(0, 0, 0, 0, 0, 0);
 
     unsigned res = 0;
     for (int i = 0; i < 9; ++i) {
@@ -118,14 +119,15 @@ Cube generateSolvedFaces(){
 
 
 
+
+
 int main() {
 
-    generateSolvedFaces();
+    //generateSolvedFaces();
 
-    Cube solvedCube = Cube();
-    solvedCube.printCube();
+    Cube scrambled = getScrambledCube();
+    scrambled.printCube(false);
 
-    std::cout << "Hello, World!" << std::endl;
     return 0;
 }
 /*
