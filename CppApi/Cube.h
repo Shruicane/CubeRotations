@@ -55,24 +55,24 @@ private:
 
 
         //Rotations
-    Cube rotateLeft();
-    Cube rotateLeftPrime();
-    Cube rotateRight();
-    Cube rotateRightPrime();
-    Cube rotateUp();
-    Cube rotateUpPrime();
-    Cube rotateDown();
-    Cube rotateDownPrime();
-    Cube rotateFront();
-    Cube rotateFrontPrime();
-    Cube rotateBack();
-    Cube rotateBackPrime();
-    Cube rotateXSlice();
-    Cube rotateXSlicePrime();
-    Cube rotateYSlice();
-    Cube rotateYSlicePrime();
-    Cube rotateZSlice();
-    Cube rotateZSlicePrime();
+    Cube rotateLeft(bool changeOrigin);
+    Cube rotateLeftPrime(bool changeOrigin);
+    Cube rotateRight(bool changeOrigin);
+    Cube rotateRightPrime(bool changeOrigin);
+    Cube rotateUp(bool changeOrigin);
+    Cube rotateUpPrime(bool changeOrigin);
+    Cube rotateDown(bool changeOrigin);
+    Cube rotateDownPrime(bool changeOrigin);
+    Cube rotateFront(bool changeOrigin);
+    Cube rotateFrontPrime(bool changeOrigin);
+    Cube rotateBack(bool changeOrigin);
+    Cube rotateBackPrime(bool changeOrigin);
+    Cube rotateXSlice(bool changeOrigin);
+    Cube rotateXSlicePrime(bool changeOrigin);
+    Cube rotateYSlice(bool changeOrigin);
+    Cube rotateYSlicePrime(bool changeOrigin);
+    Cube rotateZSlice(bool changeOrigin);
+    Cube rotateZSlicePrime(bool changeOrigin);
 
 
 public:
@@ -89,7 +89,7 @@ public:
     void setSequence(unsigned i, unsigned seq, unsigned &target);
 
     unsigned getFace(unsigned FACE);
-    Cube rotate(int i);
+    Cube rotate(int , bool changeOrigin);
     void setFace(unsigned FACE, unsigned value);
 
 };

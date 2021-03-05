@@ -124,9 +124,17 @@ Cube generateSolvedFaces(){
 int main() {
 
     //generateSolvedFaces();
+    cout << "Cube 1 - change origin" << endl;
+    Cube cube;
+    Cube copyCube = cube.rotate(0, true);
+    cube.printCube(false);
+    copyCube.printCube(false);
 
-    Cube scrambled = getScrambledCube();
-    scrambled.printCube(false);
+    cout << "Cube 2 - dont change origin" << endl;
+    Cube cube2;
+    Cube copyCube2 = cube2.rotate(0, false);
+    cube2.printCube(false);
+    copyCube2.printCube(false);
 
     return 0;
 }

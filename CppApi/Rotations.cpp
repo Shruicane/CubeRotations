@@ -1,163 +1,346 @@
 #include "Cube.h"
 
 
-Cube Cube::rotateLeft() {
+Cube Cube::rotateLeft(bool changeOrigin) {
 
-    this->setFace(CubeConstants::FACE_ORANGE, this->rotateFace(CubeConstants::FACE_ORANGE));
     Cube cube(*this);
-    this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 0, 3, 6, CubeConstants::FACE_BLUE, 0, 3, 6);
-    this->copyRow(cube.getFace(CubeConstants::FACE_BLUE), 0, 3, 6, CubeConstants::FACE_WHITE, 0, 3, 6);
-    this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 0, 3, 6, CubeConstants::FACE_GREEN, 0, 3, 6);
-    this->copyRow(cube.getFace(CubeConstants::FACE_GREEN), 0, 3, 6, CubeConstants::FACE_YELLOW, 0, 3, 6);
 
-    return *this;
+    if(!changeOrigin){
+        cube.setFace(CubeConstants::FACE_ORANGE, this->rotateFace(CubeConstants::FACE_ORANGE));
+        cube.copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 0, 3, 6, CubeConstants::FACE_BLUE, 0, 3, 6);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_BLUE), 0, 3, 6, CubeConstants::FACE_WHITE, 0, 3, 6);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_WHITE), 0, 3, 6, CubeConstants::FACE_GREEN, 0, 3, 6);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_GREEN), 0, 3, 6, CubeConstants::FACE_YELLOW, 0, 3, 6);
+        return cube;
+    }else{
+        this->setFace(CubeConstants::FACE_ORANGE, this->rotateFace(CubeConstants::FACE_ORANGE));
+        this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 0, 3, 6, CubeConstants::FACE_BLUE, 0, 3, 6);
+        this->copyRow(cube.getFace(CubeConstants::FACE_BLUE), 0, 3, 6, CubeConstants::FACE_WHITE, 0, 3, 6);
+        this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 0, 3, 6, CubeConstants::FACE_GREEN, 0, 3, 6);
+        this->copyRow(cube.getFace(CubeConstants::FACE_GREEN), 0, 3, 6, CubeConstants::FACE_YELLOW, 0, 3, 6);
+        return *this;
+    }
+
+
 }
 
-Cube Cube::rotateLeftPrime() {
+Cube Cube::rotateLeftPrime(bool changeOrigin) {
 
-    this->setFace(CubeConstants::FACE_ORANGE, this->rotateFaceInverted(CubeConstants::FACE_ORANGE));
     Cube cube(*this);
-    this->copyRow(cube.getFace(CubeConstants::FACE_BLUE), 0, 3, 6, CubeConstants::FACE_YELLOW, 0, 3, 6);
-    this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 0, 3, 6, CubeConstants::FACE_GREEN, 0, 3, 6);
-    this->copyRow(cube.getFace(CubeConstants::FACE_GREEN), 0, 3, 6, CubeConstants::FACE_WHITE, 0, 3, 6);
-    this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 0, 3, 6, CubeConstants::FACE_BLUE, 0, 3, 6);
-    return *this;
+
+    if(!changeOrigin){
+        cube.setFace(CubeConstants::FACE_ORANGE, this->rotateFaceInverted(CubeConstants::FACE_ORANGE));
+        cube.copyRow(cube.getFace(CubeConstants::FACE_BLUE), 0, 3, 6, CubeConstants::FACE_YELLOW, 0, 3, 6);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 0, 3, 6, CubeConstants::FACE_GREEN, 0, 3, 6);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_GREEN), 0, 3, 6, CubeConstants::FACE_WHITE, 0, 3, 6);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_WHITE), 0, 3, 6, CubeConstants::FACE_BLUE, 0, 3, 6);
+        return cube;
+    }else{
+        this->setFace(CubeConstants::FACE_ORANGE, this->rotateFaceInverted(CubeConstants::FACE_ORANGE));
+        this->copyRow(cube.getFace(CubeConstants::FACE_BLUE), 0, 3, 6, CubeConstants::FACE_YELLOW, 0, 3, 6);
+        this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 0, 3, 6, CubeConstants::FACE_GREEN, 0, 3, 6);
+        this->copyRow(cube.getFace(CubeConstants::FACE_GREEN), 0, 3, 6, CubeConstants::FACE_WHITE, 0, 3, 6);
+        this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 0, 3, 6, CubeConstants::FACE_BLUE, 0, 3, 6);
+        return *this;
+    }
+
+
 }
 
-Cube Cube::rotateRight() {
+Cube Cube::rotateRight(bool changeOrigin) {
 
-    this->setFace(CubeConstants::FACE_RED, this->rotateFace(CubeConstants::FACE_RED));
     Cube cube(*this);
-    this->copyRow(cube.getFace(CubeConstants::FACE_BLUE), 2, 5, 8, CubeConstants::FACE_YELLOW, 2, 5, 8);
-    this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 2, 5, 8, CubeConstants::FACE_GREEN, 2, 5, 8);
-    this->copyRow(cube.getFace(CubeConstants::FACE_GREEN), 2, 5, 8, CubeConstants::FACE_WHITE, 2, 5, 8);
-    this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 2, 5, 8, CubeConstants::FACE_BLUE, 2, 5, 8);
 
-    return *this;
+    if(!changeOrigin){
+        cube.setFace(CubeConstants::FACE_RED, this->rotateFace(CubeConstants::FACE_RED));
+        cube.copyRow(cube.getFace(CubeConstants::FACE_BLUE), 2, 5, 8, CubeConstants::FACE_YELLOW, 2, 5, 8);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 2, 5, 8, CubeConstants::FACE_GREEN, 2, 5, 8);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_GREEN), 2, 5, 8, CubeConstants::FACE_WHITE, 2, 5, 8);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_WHITE), 2, 5, 8, CubeConstants::FACE_BLUE, 2, 5, 8);
+        return cube;
+    }else{
+        this->setFace(CubeConstants::FACE_RED, this->rotateFace(CubeConstants::FACE_RED));
+        this->copyRow(cube.getFace(CubeConstants::FACE_BLUE), 2, 5, 8, CubeConstants::FACE_YELLOW, 2, 5, 8);
+        this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 2, 5, 8, CubeConstants::FACE_GREEN, 2, 5, 8);
+        this->copyRow(cube.getFace(CubeConstants::FACE_GREEN), 2, 5, 8, CubeConstants::FACE_WHITE, 2, 5, 8);
+        this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 2, 5, 8, CubeConstants::FACE_BLUE, 2, 5, 8);
+        return *this;
+    }
+
+
 }
 
-Cube Cube::rotateRightPrime() {
+Cube Cube::rotateRightPrime(bool changeOrigin) {
 
-    this->setFace(CubeConstants::FACE_RED, this->rotateFaceInverted(CubeConstants::FACE_RED));
     Cube cube(*this);
-    this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 2, 5, 8, CubeConstants::FACE_BLUE, 2, 5, 8);
-    this->copyRow(cube.getFace(CubeConstants::FACE_BLUE), 2, 5, 8, CubeConstants::FACE_WHITE, 2, 5, 8);
-    this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 2, 5, 8, CubeConstants::FACE_GREEN, 2, 5, 8);
-    this->copyRow(cube.getFace(CubeConstants::FACE_GREEN), 2, 5, 8, CubeConstants::FACE_YELLOW, 2, 5, 8);
-    return *this;
+
+    if(!changeOrigin){
+        cube.setFace(CubeConstants::FACE_RED, this->rotateFaceInverted(CubeConstants::FACE_RED));
+        cube.copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 2, 5, 8, CubeConstants::FACE_BLUE, 2, 5, 8);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_BLUE), 2, 5, 8, CubeConstants::FACE_WHITE, 2, 5, 8);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_WHITE), 2, 5, 8, CubeConstants::FACE_GREEN, 2, 5, 8);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_GREEN), 2, 5, 8, CubeConstants::FACE_YELLOW, 2, 5, 8);
+        return cube;
+    }else{
+        this->setFace(CubeConstants::FACE_RED, this->rotateFaceInverted(CubeConstants::FACE_RED));
+        this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 2, 5, 8, CubeConstants::FACE_BLUE, 2, 5, 8);
+        this->copyRow(cube.getFace(CubeConstants::FACE_BLUE), 2, 5, 8, CubeConstants::FACE_WHITE, 2, 5, 8);
+        this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 2, 5, 8, CubeConstants::FACE_GREEN, 2, 5, 8);
+        this->copyRow(cube.getFace(CubeConstants::FACE_GREEN), 2, 5, 8, CubeConstants::FACE_YELLOW, 2, 5, 8);
+        return *this;
+    }
 }
 
-Cube Cube::rotateUp() {
+Cube Cube::rotateUp(bool changeOrigin) {
 
-    this->setFace(CubeConstants::FACE_YELLOW, this->rotateFace(CubeConstants::FACE_YELLOW));
     Cube cube(*this);
-    this->copyRow(cube.getFace(CubeConstants::FACE_BLUE), 0, 1, 2, CubeConstants::FACE_ORANGE, 0, 1, 2);
-    this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 0, 1, 2, CubeConstants::FACE_GREEN, 8, 7, 6);
-    this->copyRow(cube.getFace(CubeConstants::FACE_GREEN), 6, 7, 8, CubeConstants::FACE_RED, 2, 1, 0);
-    this->copyRow(cube.getFace(CubeConstants::FACE_RED), 0, 1, 2, CubeConstants::FACE_BLUE, 0, 1, 2);
 
-    return *this;
+    if(!changeOrigin){
+        cube.setFace(CubeConstants::FACE_YELLOW, this->rotateFace(CubeConstants::FACE_YELLOW));
+        cube.copyRow(cube.getFace(CubeConstants::FACE_BLUE), 0, 1, 2, CubeConstants::FACE_ORANGE, 0, 1, 2);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 0, 1, 2, CubeConstants::FACE_GREEN, 8, 7, 6);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_GREEN), 6, 7, 8, CubeConstants::FACE_RED, 2, 1, 0);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_RED), 0, 1, 2, CubeConstants::FACE_BLUE, 0, 1, 2);
+        return cube;
+    }else{
+        this->setFace(CubeConstants::FACE_YELLOW, this->rotateFace(CubeConstants::FACE_YELLOW));
+        this->copyRow(cube.getFace(CubeConstants::FACE_BLUE), 0, 1, 2, CubeConstants::FACE_ORANGE, 0, 1, 2);
+        this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 0, 1, 2, CubeConstants::FACE_GREEN, 8, 7, 6);
+        this->copyRow(cube.getFace(CubeConstants::FACE_GREEN), 6, 7, 8, CubeConstants::FACE_RED, 2, 1, 0);
+        this->copyRow(cube.getFace(CubeConstants::FACE_RED), 0, 1, 2, CubeConstants::FACE_BLUE, 0, 1, 2);
+
+        return *this;
+    }
+
+
 }
 
-Cube Cube::rotateUpPrime() {
+Cube Cube::rotateUpPrime(bool changeOrigin) {
 
-    this->setFace(CubeConstants::FACE_YELLOW, this->rotateFaceInverted(CubeConstants::FACE_YELLOW));
     Cube cube(*this);
-    this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 0, 1, 2, CubeConstants::FACE_BLUE, 0, 1, 2);
-    this->copyRow(cube.getFace(CubeConstants::FACE_BLUE), 0, 1, 2, CubeConstants::FACE_RED, 0, 1, 2);
-    this->copyRow(cube.getFace(CubeConstants::FACE_RED), 0, 1, 2, CubeConstants::FACE_GREEN, 8, 7, 6);
-    this->copyRow(cube.getFace(CubeConstants::FACE_GREEN), 8, 7, 6, CubeConstants::FACE_ORANGE, 0, 1, 2);
 
-    return *this;
+    if(!changeOrigin){
+        cube.setFace(CubeConstants::FACE_YELLOW, this->rotateFaceInverted(CubeConstants::FACE_YELLOW));
+        cube.copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 0, 1, 2, CubeConstants::FACE_BLUE, 0, 1, 2);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_BLUE), 0, 1, 2, CubeConstants::FACE_RED, 0, 1, 2);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_RED), 0, 1, 2, CubeConstants::FACE_GREEN, 8, 7, 6);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_GREEN), 8, 7, 6, CubeConstants::FACE_ORANGE, 0, 1, 2);
+        return cube;
+    }else{
+        this->setFace(CubeConstants::FACE_YELLOW, this->rotateFaceInverted(CubeConstants::FACE_YELLOW));
+        this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 0, 1, 2, CubeConstants::FACE_BLUE, 0, 1, 2);
+        this->copyRow(cube.getFace(CubeConstants::FACE_BLUE), 0, 1, 2, CubeConstants::FACE_RED, 0, 1, 2);
+        this->copyRow(cube.getFace(CubeConstants::FACE_RED), 0, 1, 2, CubeConstants::FACE_GREEN, 8, 7, 6);
+        this->copyRow(cube.getFace(CubeConstants::FACE_GREEN), 8, 7, 6, CubeConstants::FACE_ORANGE, 0, 1, 2);
+
+        return *this;
+    }
+
+
 }
 
-Cube Cube::rotateDown() {
+Cube Cube::rotateDown(bool changeOrigin) {
 
-    this->setFace(CubeConstants::FACE_WHITE, this->rotateFace(CubeConstants::FACE_WHITE));
     Cube cube(*this);
-    this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 6, 7, 8, CubeConstants::FACE_BLUE, 6, 7, 8);
-    this->copyRow(cube.getFace(CubeConstants::FACE_BLUE), 6, 7, 8, CubeConstants::FACE_RED, 6, 7, 8);
-    this->copyRow(cube.getFace(CubeConstants::FACE_RED), 6, 7, 8, CubeConstants::FACE_GREEN, 2, 1, 0);
-    this->copyRow(cube.getFace(CubeConstants::FACE_GREEN), 2, 1, 0, CubeConstants::FACE_ORANGE, 6, 7, 8);
-    return *this;
+
+    if(!changeOrigin){
+        cube.setFace(CubeConstants::FACE_WHITE, this->rotateFace(CubeConstants::FACE_WHITE));
+        cube.copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 6, 7, 8, CubeConstants::FACE_BLUE, 6, 7, 8);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_BLUE), 6, 7, 8, CubeConstants::FACE_RED, 6, 7, 8);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_RED), 6, 7, 8, CubeConstants::FACE_GREEN, 2, 1, 0);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_GREEN), 2, 1, 0, CubeConstants::FACE_ORANGE, 6, 7, 8);
+        return cube;
+    }else{
+        this->setFace(CubeConstants::FACE_WHITE, this->rotateFace(CubeConstants::FACE_WHITE));
+        this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 6, 7, 8, CubeConstants::FACE_BLUE, 6, 7, 8);
+        this->copyRow(cube.getFace(CubeConstants::FACE_BLUE), 6, 7, 8, CubeConstants::FACE_RED, 6, 7, 8);
+        this->copyRow(cube.getFace(CubeConstants::FACE_RED), 6, 7, 8, CubeConstants::FACE_GREEN, 2, 1, 0);
+        this->copyRow(cube.getFace(CubeConstants::FACE_GREEN), 2, 1, 0, CubeConstants::FACE_ORANGE, 6, 7, 8);
+        return *this;
+    }
+
+
 }
 
-Cube Cube::rotateDownPrime() {
+Cube Cube::rotateDownPrime(bool changeOrigin) {
 
-    this->setFace(CubeConstants::FACE_WHITE, this->rotateFaceInverted(CubeConstants::FACE_WHITE));
     Cube cube(*this);
-    this->copyRow(cube.getFace(CubeConstants::FACE_BLUE), 6, 7, 8, CubeConstants::FACE_ORANGE, 6, 7, 8);
-    this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 6, 7, 8, CubeConstants::FACE_GREEN, 2, 1, 0);
-    this->copyRow(cube.getFace(CubeConstants::FACE_GREEN), 2, 1, 0, CubeConstants::FACE_RED, 6, 7, 8);
-    this->copyRow(cube.getFace(CubeConstants::FACE_RED), 6, 7, 8, CubeConstants::FACE_BLUE, 6, 7, 8);
-    return *this;
+
+    if(!changeOrigin){
+        cube.setFace(CubeConstants::FACE_WHITE, this->rotateFaceInverted(CubeConstants::FACE_WHITE));
+        cube.copyRow(cube.getFace(CubeConstants::FACE_BLUE), 6, 7, 8, CubeConstants::FACE_ORANGE, 6, 7, 8);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 6, 7, 8, CubeConstants::FACE_GREEN, 2, 1, 0);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_GREEN), 2, 1, 0, CubeConstants::FACE_RED, 6, 7, 8);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_RED), 6, 7, 8, CubeConstants::FACE_BLUE, 6, 7, 8);
+        return cube;
+    }else{
+        this->setFace(CubeConstants::FACE_WHITE, this->rotateFaceInverted(CubeConstants::FACE_WHITE));
+        this->copyRow(cube.getFace(CubeConstants::FACE_BLUE), 6, 7, 8, CubeConstants::FACE_ORANGE, 6, 7, 8);
+        this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 6, 7, 8, CubeConstants::FACE_GREEN, 2, 1, 0);
+        this->copyRow(cube.getFace(CubeConstants::FACE_GREEN), 2, 1, 0, CubeConstants::FACE_RED, 6, 7, 8);
+        this->copyRow(cube.getFace(CubeConstants::FACE_RED), 6, 7, 8, CubeConstants::FACE_BLUE, 6, 7, 8);
+        return *this;
+    }
+
+
 }
 
-Cube Cube::rotateFront() {
+Cube Cube::rotateFront(bool changeOrigin) {
 
-    this->setFace(CubeConstants::FACE_BLUE, this->rotateFace(CubeConstants::FACE_BLUE));
     Cube cube(*this);
-    this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 8, 5, 2, CubeConstants::FACE_YELLOW, 6, 7, 8);
-    this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 6, 7, 8, CubeConstants::FACE_RED, 0, 3, 6);
-    this->copyRow(cube.getFace(CubeConstants::FACE_RED), 0, 3, 6, CubeConstants::FACE_WHITE, 2, 1, 0);
-    this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 2, 1, 0, CubeConstants::FACE_ORANGE, 8, 5, 2);
-    return *this;
+
+    if(!changeOrigin){
+        cube.setFace(CubeConstants::FACE_BLUE, this->rotateFace(CubeConstants::FACE_BLUE));
+        cube.copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 8, 5, 2, CubeConstants::FACE_YELLOW, 6, 7, 8);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 6, 7, 8, CubeConstants::FACE_RED, 0, 3, 6);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_RED), 0, 3, 6, CubeConstants::FACE_WHITE, 2, 1, 0);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_WHITE), 2, 1, 0, CubeConstants::FACE_ORANGE, 8, 5, 2);
+        return cube;
+    }else{
+        this->setFace(CubeConstants::FACE_BLUE, this->rotateFace(CubeConstants::FACE_BLUE));
+        this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 8, 5, 2, CubeConstants::FACE_YELLOW, 6, 7, 8);
+        this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 6, 7, 8, CubeConstants::FACE_RED, 0, 3, 6);
+        this->copyRow(cube.getFace(CubeConstants::FACE_RED), 0, 3, 6, CubeConstants::FACE_WHITE, 2, 1, 0);
+        this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 2, 1, 0, CubeConstants::FACE_ORANGE, 8, 5, 2);
+        return *this;
+    }
+
+
 }
 
-Cube Cube::rotateFrontPrime() {
+Cube Cube::rotateFrontPrime(bool changeOrigin) {
 
-    this->setFace(CubeConstants::FACE_BLUE, this->rotateFaceInverted(CubeConstants::FACE_BLUE));
     Cube cube(*this);
-    this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 8, 7, 6, CubeConstants::FACE_ORANGE, 2, 5, 8);
-    this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 2, 5, 8, CubeConstants::FACE_WHITE, 0, 1, 2);
-    this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 0, 1, 2, CubeConstants::FACE_RED, 6, 3, 0);
-    this->copyRow(cube.getFace(CubeConstants::FACE_RED), 6, 3, 0, CubeConstants::FACE_YELLOW, 8, 7, 6);
-    return *this;
+
+    if(!changeOrigin){
+        cube.setFace(CubeConstants::FACE_BLUE, this->rotateFaceInverted(CubeConstants::FACE_BLUE));
+        cube.copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 8, 7, 6, CubeConstants::FACE_ORANGE, 2, 5, 8);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 2, 5, 8, CubeConstants::FACE_WHITE, 0, 1, 2);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_WHITE), 0, 1, 2, CubeConstants::FACE_RED, 6, 3, 0);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_RED), 6, 3, 0, CubeConstants::FACE_YELLOW, 8, 7, 6);
+        return cube;
+    }else{
+        this->setFace(CubeConstants::FACE_BLUE, this->rotateFaceInverted(CubeConstants::FACE_BLUE));
+        this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 8, 7, 6, CubeConstants::FACE_ORANGE, 2, 5, 8);
+        this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 2, 5, 8, CubeConstants::FACE_WHITE, 0, 1, 2);
+        this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 0, 1, 2, CubeConstants::FACE_RED, 6, 3, 0);
+        this->copyRow(cube.getFace(CubeConstants::FACE_RED), 6, 3, 0, CubeConstants::FACE_YELLOW, 8, 7, 6);
+        return *this;
+    }
+
+
 }
 
-Cube Cube::rotateBack() {
+Cube Cube::rotateBack(bool changeOrigin) {
 
-    this->setFace(CubeConstants::FACE_GREEN, this->rotateFace(CubeConstants::FACE_GREEN));
     Cube cube(*this);
-    this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 2, 1, 0, CubeConstants::FACE_ORANGE, 0, 3, 6);
-    this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 0, 3, 6, CubeConstants::FACE_WHITE, 6, 7, 8);
-    this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 6, 7, 8, CubeConstants::FACE_RED, 8, 5, 2);
-    this->copyRow(cube.getFace(CubeConstants::FACE_RED), 8, 5, 2, CubeConstants::FACE_YELLOW, 2, 1, 0);
-    return *this;
+
+    if(!changeOrigin){
+        cube.setFace(CubeConstants::FACE_GREEN, this->rotateFace(CubeConstants::FACE_GREEN));
+        cube.copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 2, 1, 0, CubeConstants::FACE_ORANGE, 0, 3, 6);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 0, 3, 6, CubeConstants::FACE_WHITE, 6, 7, 8);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_WHITE), 6, 7, 8, CubeConstants::FACE_RED, 8, 5, 2);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_RED), 8, 5, 2, CubeConstants::FACE_YELLOW, 2, 1, 0);
+        return cube;
+    }else{
+        this->setFace(CubeConstants::FACE_GREEN, this->rotateFace(CubeConstants::FACE_GREEN));
+        this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 2, 1, 0, CubeConstants::FACE_ORANGE, 0, 3, 6);
+        this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 0, 3, 6, CubeConstants::FACE_WHITE, 6, 7, 8);
+        this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 6, 7, 8, CubeConstants::FACE_RED, 8, 5, 2);
+        this->copyRow(cube.getFace(CubeConstants::FACE_RED), 8, 5, 2, CubeConstants::FACE_YELLOW, 2, 1, 0);
+        return *this;
+    }
+
+
 }
 
-Cube Cube::rotateBackPrime() {
+Cube Cube::rotateBackPrime(bool changeOrigin) {
 
-    this->setFace(CubeConstants::FACE_GREEN, this->rotateFaceInverted(CubeConstants::FACE_GREEN));
     Cube cube(*this);
-    this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 6, 3, 0, CubeConstants::FACE_YELLOW, 0, 1, 2);
-    this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 0, 1, 2, CubeConstants::FACE_RED, 2, 5, 8);
-    this->copyRow(cube.getFace(CubeConstants::FACE_RED), 2, 5, 8, CubeConstants::FACE_WHITE, 8, 7, 6);
-    this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 8, 7, 6, CubeConstants::FACE_ORANGE, 6, 3, 0);
+
+    if(!changeOrigin){
+        cube.setFace(CubeConstants::FACE_GREEN, this->rotateFaceInverted(CubeConstants::FACE_GREEN));
+        cube.copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 6, 3, 0, CubeConstants::FACE_YELLOW, 0, 1, 2);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 0, 1, 2, CubeConstants::FACE_RED, 2, 5, 8);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_RED), 2, 5, 8, CubeConstants::FACE_WHITE, 8, 7, 6);
+        cube.copyRow(cube.getFace(CubeConstants::FACE_WHITE), 8, 7, 6, CubeConstants::FACE_ORANGE, 6, 3, 0);
+        return cube;
+    }else{
+        this->setFace(CubeConstants::FACE_GREEN, this->rotateFaceInverted(CubeConstants::FACE_GREEN));
+        this->copyRow(cube.getFace(CubeConstants::FACE_ORANGE), 6, 3, 0, CubeConstants::FACE_YELLOW, 0, 1, 2);
+        this->copyRow(cube.getFace(CubeConstants::FACE_YELLOW), 0, 1, 2, CubeConstants::FACE_RED, 2, 5, 8);
+        this->copyRow(cube.getFace(CubeConstants::FACE_RED), 2, 5, 8, CubeConstants::FACE_WHITE, 8, 7, 6);
+        this->copyRow(cube.getFace(CubeConstants::FACE_WHITE), 8, 7, 6, CubeConstants::FACE_ORANGE, 6, 3, 0);
+        return *this;
+    }
+
+
+}
+
+Cube Cube::rotateXSlice(bool changeOrigin) {
+
+    if(!changeOrigin){
+
+    }else{
+
+    }
+
+
     return *this;
 }
 
-Cube Cube::rotateXSlice() {
+Cube Cube::rotateXSlicePrime(bool changeOrigin) {
+
+    if(!changeOrigin){
+
+    }else{
+
+    }
+
     return *this;
 }
 
-Cube Cube::rotateXSlicePrime() {
+Cube Cube::rotateYSlice(bool changeOrigin) {
+
+    if(!changeOrigin){
+
+    }else{
+
+    }
+
     return *this;
 }
 
-Cube Cube::rotateYSlice() {
+Cube Cube::rotateYSlicePrime(bool changeOrigin) {
+
+    if(!changeOrigin){
+
+    }else{
+
+    }
+
     return *this;
 }
 
-Cube Cube::rotateYSlicePrime() {
+Cube Cube::rotateZSlice(bool changeOrigin) {
+
+    if(!changeOrigin){
+
+    }else{
+
+    }
+
     return *this;
 }
 
-Cube Cube::rotateZSlice() {
-    return *this;
-}
+Cube Cube::rotateZSlicePrime(bool changeOrigin) {
 
-Cube Cube::rotateZSlicePrime() {
+    if(!changeOrigin){
+
+    }else{
+
+    }
+
     return *this;
 }
 

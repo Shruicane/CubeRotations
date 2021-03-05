@@ -108,44 +108,44 @@ void Cube::setFace(unsigned FACE, unsigned value) {
     *(this->faceArr[FACE]) = value;
 }
 
-Cube Cube::rotate(int i) {
+Cube Cube::rotate(int i, bool changeOrigin) {
     switch (i) {
         case 0:
-            return this->rotateLeft();
+            return this->rotateLeft(changeOrigin);
         case 1:
-            return this->rotateLeftPrime();
+            return this->rotateLeftPrime(changeOrigin);
         case 2:
-            return this->rotateRight();
+            return this->rotateRight(changeOrigin);
         case 3:
-            return this->rotateRightPrime();
+            return this->rotateRightPrime(changeOrigin);
         case 4:
-            return this->rotateUp();
+            return this->rotateUp(changeOrigin);
         case 5:
-            return this->rotateUpPrime();
+            return this->rotateUpPrime(changeOrigin);
         case 6:
-            return this->rotateDown();
+            return this->rotateDown(changeOrigin);
         case 7:
-            return this->rotateDownPrime();
+            return this->rotateDownPrime(changeOrigin);
         case 8:
-            return this->rotateFront();
+            return this->rotateFront(changeOrigin);
         case 9:
-            return this->rotateFrontPrime();
+            return this->rotateFrontPrime(changeOrigin);
         case 10:
-            return this->rotateBack();
+            return this->rotateBack(changeOrigin);
         case 11:
-            return this->rotateBackPrime();
+            return this->rotateBackPrime(changeOrigin);
         case 12:
-            return this->rotateXSlice();
+            return this->rotateXSlice(changeOrigin);
         case 13:
-            return this->rotateXSlicePrime();
+            return this->rotateXSlicePrime(changeOrigin);
         case 14:
-            return this->rotateYSlice();
+            return this->rotateYSlice(changeOrigin);
         case 15:
-            return this->rotateYSlicePrime();
+            return this->rotateYSlicePrime(changeOrigin);
         case 16:
-            return this->rotateZSlice();
+            return this->rotateZSlice(changeOrigin);
         case 17:
-            return this->rotateZSlicePrime();
+            return this->rotateZSlicePrime(changeOrigin);
         default:
             return *this;
     }
@@ -192,6 +192,7 @@ void Cube::printCube(bool showLegend){
     cout << "        | " << getSequence(0, faceBlue) << " " << getSequence(1, faceBlue) << " " << getSequence(2, faceBlue) << " |" << endl;
     cout << "        | " << getSequence(3, faceBlue) << " " << getSequence(4, faceBlue) << " " << getSequence(5, faceBlue) << " |" << endl;
     cout << "        | " << getSequence(6, faceBlue) << " " << getSequence(7, faceBlue) << " " << getSequence(8, faceBlue) << " |" << endl;
+    cout << "\n";
 
 }
 
@@ -213,7 +214,7 @@ Cube Cube::setScrambled() {
 
     for (int i = 0; i < 20; ++i) {
         int random = dist(mt);
-        scrambled.rotate(random);
+        scrambled.rotate(random, true);
     }
     this->setFace(CubeConstants::FACE_WHITE, scrambled.getFace(CubeConstants::FACE_WHITE));
     this->setFace(CubeConstants::FACE_RED, scrambled.getFace(CubeConstants::FACE_RED));
