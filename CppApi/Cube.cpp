@@ -166,7 +166,24 @@ void Cube::printCube(bool showLegend){
         cout << "Blue   := 3" << endl;
         cout << "Orange := 4" << endl;
         cout << "Green  := 5" << endl;
-        cout << "Yellow := 6 \n" << endl;
+        cout << "Yellow := 6" << endl;
+        cout << "Cube Code: ";
+
+        for (int i = 0; i < 6; ++i) {
+            for (int j = 0; j < 9; ++j) {
+                cout << getSequence(j, getFace(i)) - 1;
+
+                if(j < 8){
+                    cout << ",";
+                }
+            }
+            if(i < 5){
+                cout << ";";
+            }else{
+                cout << "\n" << endl;
+            }
+        }
+
     }
 
     cout << "        | " << getSequence(0, faceGreen) << " " << getSequence(1, faceGreen) << " " << getSequence(2, faceGreen) << " |" << endl;

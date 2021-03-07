@@ -128,11 +128,11 @@ int main() {
     Cube cube;
     Cube copyCube = cube.rotate(0, true);
     cube.printCube(false);
-    copyCube.printCube(false);
+    copyCube.printCube(true);
 
     cout << "Cube 2 - dont change origin" << endl;
     Cube cube2;
-    Cube copyCube2 = cube2.rotate(0, false);
+    Cube copyCube2 = cube2.rotate(0, true);
     cube2.printCube(false);
     copyCube2.printCube(false);
 
